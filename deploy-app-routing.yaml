@@ -1,41 +1,38 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: aks-helloworld  
+  name: azure-fastapi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: aks-helloworld
+      app: azure-fastapi
   template:
     metadata:
       labels:
-        app: aks-helloworld
+        app: azure-fastapi
     spec:
       containers:
-      - name: aks-helloworld
-        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
+      - name: azure-fastapi
+        image: nsdr1228/azure-fastapi
         ports:
         - containerPort: 80
-        env:
-        - name: TITLE
-          value: "Welcome to Azure Kubernetes Service (AKS)"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: aks-helloworld  
+  name: azure-fastapi 
 spec:
   type: ClusterIP
   ports:
   - port: 80
   selector:
-    app: aks-helloworld
+    app: azure-fastapi
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: aks-helloworld
+  name: azure-fastapi
   annotations:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
@@ -47,6 +44,6 @@ spec:
         pathType: Prefix
         backend:
           service: 
-            name: aks-helloworld
+            name: azure-fastapi
             port: 
               number: 80

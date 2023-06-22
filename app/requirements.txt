@@ -1,0 +1,11 @@
+uvicorn~=0.22.0
+fastapi~=0.97.0
+python-jose~=3.3.0
+passlib~=1.7.4
+pyscopg2~=66.0.2
+pydantic~=1.10.9
+psycopg2-binary~=2.9.6
+sqlalchemy~=2.0.16
+bcrypt~=4.0.1
+python-multipart~=0.0.6
+redis~=4.5.5
