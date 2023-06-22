@@ -11,5 +11,5 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["uvicorn", "main:app", "--port=5000"]
+CMD ["cd", "app", "&&", "uvicorn", "main:app", "--port=5000"]
 

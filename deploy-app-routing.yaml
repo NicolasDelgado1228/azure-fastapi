@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: azure-fastapi
-        image: nsdr1228/azure-fastapi
+        image: nsdr1228/azure-fastapi:v0.1
         ports:
         - containerPort: 80
 ---
